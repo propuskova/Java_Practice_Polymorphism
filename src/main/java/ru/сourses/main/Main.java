@@ -5,6 +5,8 @@ import ru.сourses.geometry.*;
 import ru.сourses.fraction.*;
 import ru.сourses.student.*;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -63,6 +65,24 @@ public class Main {
             System.out.println(p.getDescription());
         }
 
+        //15
+        System.out.println("\n\nЗадание 15");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите х - основание степени: ");
+        String xStr = scanner.nextLine();
+        System.out.println("\nВведите у - показатель степени: ");
+        String yStr = scanner.nextLine();
+
+        double result = power(xStr, yStr);
+        System.out.println("\nРезультат: " + result);
+
+        //16
+        System.out.println("\n\nЗадание 16");
+        Point customPoint = new Point(3, 4);                // наша точка из пакета geometry
+        java.awt.Point awtPoint = new java.awt.Point(10, 20); // стандартная из Java
+
+        System.out.println("Custom Point: " + customPoint);
+        System.out.println("AWT Point: " + awtPoint);
     }
 
 
@@ -93,5 +113,20 @@ public class Main {
             total += s.getArea();
         }
         return total;
+    }
+
+    public static double power(String xStr, String yStr) {
+        int x = parseInt(xStr);
+        int y = parseInt(yStr);
+        return pow(x, y);
+    }
+
+    // Короткие имена статических методов
+    public static int parseInt(String s) {
+        return Integer.parseInt(s);
+    }
+
+    public static double pow(int base, int exponent) {
+        return Math.pow(base, exponent);
     }
 }
